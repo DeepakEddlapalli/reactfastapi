@@ -24,13 +24,13 @@ stages:
       displayName: Build an image
       inputs:
         command: build
-        dockerfile: '$(Build.SourcesDirectory)/backend/Dockerfile'
+        dockerfile: '$(Build.SourcesDirectory)/frontend/Dockerfile'
         tags: |
           $(tag) 
 
     - task: Docker@2
       inputs:
         containerRegistry: 'deevahub'
-        repository: 'deevabackend'
+        repository: 'deevafrontend'
         command: 'push'
         tags: 'done'
