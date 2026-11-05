@@ -26,4 +26,11 @@ stages:
         command: build
         dockerfile: '$(Build.SourcesDirectory)/backend/Dockerfile'
         tags: |
-          $(tag)
+          $(tag) 
+
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'deevahub'
+        repository: 'deevabackend'
+        command: 'push'
+        tags: 'done'
