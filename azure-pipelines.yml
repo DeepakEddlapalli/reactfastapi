@@ -29,8 +29,12 @@ stages:
           $(tag) 
 
     - task: Docker@2
+      condition: 
+      displayName: Build Frontend
       inputs:
-        containerRegistry: 'deevahub'
+        command: build
         repository: 'owedeeva/deevafrontend'
-        command: 'push'
-        tags: 'done'
+        dockerfile: '$(Build.SourcesDirectory)/frontend/Dockerfile'
+        buildContext: '$(Build.SourcesDirectory)/frontend'
+        tags: |
+          done
