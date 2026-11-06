@@ -32,7 +32,7 @@ stages:
       condition: 
       displayName: Build Frontend
       inputs:
-        command: build
+        command: push
         repository: 'owedeeva/deevafrontend'
         dockerfile: '$(Build.SourcesDirectory)/frontend/Dockerfile'
         buildContext: '$(Build.SourcesDirectory)/frontend'
