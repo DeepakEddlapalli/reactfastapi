@@ -34,3 +34,15 @@ stages:
        tags: |
         done
 
+
+    - task: Docker@2
+      displayName: Build Backend
+      inputs:
+       containerRegistry: 'deevahub'
+       repository: 'owedeeva/deevabackend'
+       command: 'buildAndPush'
+       Dockerfile: '$(Build.SourcesDirectory)/backend/Dockerfile'
+       buildContext: '$(Build.SourcesDirectory)/backend'
+       tags: |
+        done    
+
