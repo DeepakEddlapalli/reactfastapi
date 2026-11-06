@@ -20,21 +20,17 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/frontend/Dockerfile'
-        tags: |
-          $(tag) 
+   
 
+          
     - task: Docker@2
-      condition: 
       displayName: Build Frontend
       inputs:
-        command: push
-        repository: 'owedeeva/deevafrontend:done'
-        dockerfile: '$(Build.SourcesDirectory)/frontend/Dockerfile'
-        buildContext: '$(Build.SourcesDirectory)/frontend'
-        tags: |
-          done
+       containerRegistry: 'deevahub'
+       repository: 'owedeeva/deevafrontend'
+       command: 'buildAndPush'
+       Dockerfile: '$(Build.SourcesDirectory)/frontend/Dockerfile'
+       buildContext: '$(Build.SourcesDirectory)/frontend'
+       tags: |
+        done
+
