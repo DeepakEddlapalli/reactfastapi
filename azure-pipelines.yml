@@ -33,7 +33,7 @@ stages:
       displayName: Build Frontend
       inputs:
         command: push
-        repository: 'owedeeva/deevafrontend'
+        repository: 'owedeeva/deevafrontend:done'
         dockerfile: '$(Build.SourcesDirectory)/frontend/Dockerfile'
         buildContext: '$(Build.SourcesDirectory)/frontend'
         tags: |
